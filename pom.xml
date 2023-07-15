@@ -16,7 +16,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -60,6 +59,5 @@
             <version>20220924</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 </project>
