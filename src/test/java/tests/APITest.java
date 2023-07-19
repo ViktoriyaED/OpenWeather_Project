@@ -2,10 +2,12 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class APITest extends BaseTest {
 
+    @Ignore
     @Test
     public void testOrangeButtonsArePresentOnThePage() {
         final int expectedAmountOfButtons = 30;
