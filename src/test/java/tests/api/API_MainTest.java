@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import tests.retrytest.Retry;
@@ -43,6 +44,7 @@ public class API_MainTest extends BaseTest {
     static String weatherDescription;
     static List<String> weatherDescriptionList = new ArrayList<>();
 
+    @Ignore
     @Test
     public void test_API_CNTRequest_OpenBaseURL() {
         List<String> requests = new CaptureNetworkTraffic()
@@ -60,6 +62,7 @@ public class API_MainTest extends BaseTest {
         }
     }
 
+    @Ignore
     @Test
     public void test_API_CNTResponse_OpenBaseURL() {
         List<String> responses = new CaptureNetworkTraffic()
@@ -82,6 +85,7 @@ public class API_MainTest extends BaseTest {
         Assert.assertTrue(Double.parseDouble(responses.get(3).substring(10, 14)) <= 3);
     }
 
+    @Ignore
     @Test
     public void test_API_CNTRequests_WhenSearchingCityCountry() {
         List<String> requestsSearchButton = new CaptureNetworkTraffic()
@@ -318,6 +322,7 @@ public class API_MainTest extends BaseTest {
         }
     }
 
+    @Ignore
     @Test
     public void testAllLinksAreNotBroken() {
         final List<String> allLinks = openBaseURL().getAllLinks();

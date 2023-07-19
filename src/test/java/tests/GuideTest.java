@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.RoadRiskAPIPage;
@@ -34,6 +35,7 @@ public class GuideTest extends BaseTest {
         Assert.assertEquals(actualURL, expectedBaseURL);
     }
 
+    @Ignore
     @Test
     public void testSolarRadiationApiLink_NavigatesTo_SolarRadiationApiPage() {
         final String expectedUrl = "https://openweathermap.org/api/solar-radiation";

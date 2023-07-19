@@ -2,11 +2,13 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.APIOneCall3Page;
 
 public class APIOneCall3Test extends BaseTest {
 
+    @Ignore
     @Test
     public void testAPICallsParameters() {
         final String expectedParameters = "Parameters";

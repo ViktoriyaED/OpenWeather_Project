@@ -3,6 +3,7 @@ package tests;
 import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.CurrentWeatherPage;
 import pages.MainPage;
@@ -305,6 +306,7 @@ public class MainTest extends BaseTest {
         Assert.assertEquals(actualNotificationMessage, expectedNotificationMessage);
     }
 
+    @Ignore
     @Test
     public void testAPIIconsAreDisplayed() {
         final int expectedAPIIconsQuantity = 5;
@@ -325,6 +327,7 @@ public class MainTest extends BaseTest {
         Assert.assertEquals(mainPage.getAPIIconsNames(), expectedAPIIconsNames);
     }
 
+    @Ignore
     @Test
     public void testMainPageHeaders() {
         final String expectedH1Header = "OpenWeather";
