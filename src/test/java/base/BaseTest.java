@@ -49,6 +49,9 @@ public abstract class BaseTest {
     protected void afterMethod(Method method, ITestResult result) {
         Reporter.log(ReportUtils.getTestStatistics(method, result), true);
 
+        if (!result.isSuccess() && BaseUtils.isServerRun()) {
+            BaseUtils.captureScreenFile(driver, method.getName(), this.getClass().getName());
+        }
         if (!result.isSuccess() && !BaseUtils.isServerRun()) {
             Allure.getLifecycle().addAttachment(
                     "screenshot", "image/png", "png"
