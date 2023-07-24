@@ -1,10 +1,15 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
@@ -66,5 +71,19 @@ public final class BaseUtils {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         return driver;
+    }
+
+    static void captureScreenFile(WebDriver driver, String methodName, String className) {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        Allure.getLifecycle().addAttachment(
+                "screenshot", "image/png", "png"
+                , ts.getScreenshotAs(OutputType.BYTES)
+        );
+        File file = ts.getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(file, new File(String.format("screenshots/%s-%s.png", className, methodName)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
