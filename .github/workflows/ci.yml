@@ -42,13 +42,19 @@ jobs:
           path: target/surefire-reports/TEST-*.xml
           reporter: java-junit
 
+      - name: Attach screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          path: screenshots
+
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
         continue-on-error: true
         with:
-        ref: gh-pages
-        path: gh-pages
+          ref: gh-pages
+          path: gh-pages
 
       - name: Allure Report action
         uses: simple-elf/allure-report-action@master
